@@ -1,0 +1,33 @@
+{% extends 'AppProyecto/padre.html' %}
+{% block titulo %}Bienvenido al Rincon del Libro{% endblock %}
+
+{% block encabezado %}Bienvenido al Rincon del Libro, el sitio sobre libros{% endblock %}
+
+{% block contenido %}
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <div class= "col-lg-12"> 
+                <h1>Busque libros por editoriales</h1>
+
+                
+                <p>Estamos buscando estrenos en {{ editorial }}</p>
+                {% if Libros %}
+                <ul>
+                    {% for libro in Libros%}
+                    <li>{{ libro.titulo }} ({{ libro.editorial }}) {{ libro.paginas }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No hay libros registrados en {{editorial}}</p>
+                {% endif %}
+
+             
+               
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

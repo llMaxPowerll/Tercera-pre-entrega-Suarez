@@ -9,9 +9,7 @@ class libro(models.Model):
 
     def __str__(self):
         return self.titulo+ "de" + self.editorial 
-   
-    class meta:
-        verbose_name_plural='Libros'    
+    
     
 class biblioteca(models.Model):
     nombre=models.CharField(max_length=50)

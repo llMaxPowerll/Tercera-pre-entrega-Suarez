@@ -1,7 +1,7 @@
 {% extends 'AppProyecto/padre.html' %}
 {% block titulo %}Bienvenido al Rincon del Libro{% endblock %}
 
-{% block encabezado %}Bienvenido al Rincon del Libro, el sitio sobre libros{% endblock %}
+{% block encabezado %}Bienvenido al Rincon del Libro{% endblock %}
 
 {% block contenido %}
 <section class="features-icons bg-light text-center">
@@ -11,18 +11,24 @@
                 <h1>Busque libros por editoriales</h1>
 
                 
-                <p>Estamos buscando estrenos en {{ editorial }}</p>
+               
                 {% if Libros %}
                 <ul>
-                    {% for libro in Libros%}
+                    {% for libro in Libros %}
                     <li>{{ libro.titulo }} ({{ libro.editorial }}) {{ libro.paginas }}</li>
                     {% endfor %}
                 </ul>
                 {% else %}
-                <p>No hay libros registrados en {{editorial}}</p>
+                <p>No hay libros registrados </p>
                 {% endif %}
 
-             
+                <form action="{%url 'buscar'%}" method="GET">
+                    {% csrf_token %}
+                        <input type="text" name="editorial" id="editorial">
+                        <input type="submit" value="Buscar">    
+                    
+                    
+                    </form>
                
                 
             </div>

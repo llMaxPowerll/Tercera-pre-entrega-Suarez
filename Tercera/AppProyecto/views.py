@@ -16,14 +16,14 @@ def libros (request):
 
         if mi_formu.is_valid():
             informacion = mi_formu.cleaned_data
-            librodb= libro(titulo=informacion['titulo'], editorial=informacion['editorial'],paginas=informacion['paginas'])
+            librodb= libro(titulo=informacion['titulo'], editorial=informacion['editorial'], paginas=informacion['paginas'])
             librodb.save()
-            nuevo_libro = {'titulo': informacion['titulo'], 'Editorial':informacion['editorial'], 'Paginas':informacion['paginas']}
-            return render (request, 'AppProyecto/libros.html',{'libroformulario': mi_formu,'nuevo_libro':nuevo_libro,"mis_libros":mis_libros })
+            nuevo_libro = {'titulo': informacion['titulo'], 'editorial':informacion['editorial'], 'paginas':informacion['paginas']}
+            return render (request, 'AppProyecto/libros.html',{'librosformulario': mi_formu, 'nuevo_libro':nuevo_libro,"mis_libros":mis_libros })
     else:
         mi_formu=LibrosFormulario()
 
-    return render(request,'AppProyecto/libros.html', {'peliculaformulario':mi_formu,'mis_pelis':mis_libros})
+    return render(request,'AppProyecto/libros.html', {'librosformulario':mi_formu,'mis_libros':mis_libros})
 
 
 
@@ -63,6 +63,15 @@ def bibliotecas (request):
     return render(request, 'AppProyecto/bibliotecas.html',{'bibliotecasformulario':mi_formu, 'mis_bibliotecas':mis_bibliotecas})
       
 
+def buscar(request):
+    if request.GET["editorial"]:
+        edi= request.GET["editorial"]
+        resultado=libro.objects.filter(editorial__icontains = edi)
+
+        return render (request, 'AppProyecto/inicio.html',{'Libros':resultado, 'Editorial':edi})
+    else:
+        respuesta='no se encontraron libros de esa editorial'
+    return render(request, 'AppProyecto/inicio.html',{'respuesta':respuesta})
 
 
 
@@ -100,16 +109,16 @@ def bibliotecas (request):
 #     return HttpResponse(documento)
 
 
-def cargar_libro(request):
+# def cargar_libro(request):
     
-    titulo_libro="La Metamorfosis"
-    nombre_editorial="Kurt Wolff Verlag"
-    cantidad_paginas=80
+#     titulo_libro="La Metamorfosis"
+#     nombre_editorial="Kurt Wolff Verlag"
+#     cantidad_paginas=80
 
-    libro=Libro(titulo=titulo_libro, editorial=nombre_editorial, paginas=cantidad_paginas)
-    libro.save()
+#     libro=Libro(titulo=titulo_libro, editorial=nombre_editorial, paginas=cantidad_paginas)
+#     libro.save()
 
-    respuesta=f"se a cargado el libro: {titulo_libro}"
+#     respuesta=f"se a cargado el libro: {titulo_libro}"
 
-    return HttpResponse(respuesta)
+#     return HttpResponse(respuesta)
 

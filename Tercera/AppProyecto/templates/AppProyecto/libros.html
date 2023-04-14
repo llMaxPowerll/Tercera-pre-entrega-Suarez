@@ -15,11 +15,11 @@
                 
                 <h4>Libros</h4>
                 {% for libro in mis_libros %}
-                {{libro.titulo}} {{libro.editorial}} {{libro.paginas}} <br>
+                Titulo: {{libro.titulo}}&nbsp;&nbsp;&nbsp;&nbsp; Editorial: {{libro.editorial}}&nbsp;&nbsp;&nbsp; Paginas: {{libro.paginas}} <br>
                 {% endfor %}
 
                 {% if nuevo_libro %}  
-                    <p>se agrego correctamente el libro {{nuevo_libro.titulo}} {{nuevo_libro.editorial}} {{nuevo_libro.paginas}}</p>
+                    <p>se agrego correctamente el libro {{nuevo_libro.titulo}} </p>
                 {% endif %}
 
 

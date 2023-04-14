@@ -15,11 +15,11 @@
                 
                 <h4>Bibliotecas</h4>
                 {% for biblioteca in mis_bibliotecas %}
-                {{biblioteca.nombre}} {{biblioteca.direccion}} {{biblioteca.email}} <br>
+                Biblioteca: {{biblioteca.nombre}}&nbsp;&nbsp;&nbsp;&nbsp; Direccion: {{biblioteca.direccion}}&nbsp;&nbsp;&nbsp;&nbsp;Email: {{biblioteca.email}} <br>
                 {% endfor %}
 
                 {% if nueva_biblioteca %}
-                    <p>se agrego correctamente a la biblioteca {{nueva_biblioteca.nombre}} ({{nueva_biblioteca.direccion}}) {{nueva_biblioteca.email}}</p>
+                    <p>se agrego correctamente a la biblioteca {{nueva_biblioteca.nombre}} </p>
                 {% endif %}
 
 

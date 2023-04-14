@@ -15,11 +15,11 @@
                 
                 <h4>Autores</h4>
                 {% for autor in mis_autores %}
-                {{ autor.nombre }} {{ autor.apellido }} {{ autor.edad }} <br>
+                Autor: {{ autor.nombre }}&nbsp; {{ autor.apellido }}&nbsp;&nbsp;&nbsp;&nbsp;Edad: {{ autor.edad }} <br>
                 {% endfor %}
 
                 {% if nuevo_autor %}
-                    <p>se agrego correctamente al autor {{nuevo_autor.nombre}} ({{nuevo_autor.apellido}}) {{nuevo_autor.edad}}</p>
+                    <p>se agrego correctamente al autor {{nuevo_autor.nombre}} {{nuevo_autor.apellido}} Edad: {{nuevo_autor.edad}}</p>
                 {% endif %}
 
 

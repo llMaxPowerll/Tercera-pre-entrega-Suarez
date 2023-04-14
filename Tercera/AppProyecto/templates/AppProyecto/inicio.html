@@ -13,9 +13,9 @@
                 
                
                 {% if Libros %}
-                <ul>
+                <ul style="list-style: none ;" >
                     {% for libro in Libros %}
-                    <li>{{ libro.titulo }} ({{ libro.editorial }}) {{ libro.paginas }}</li>
+                    <li >titulo: {{ libro.titulo }} &nbsp;&nbsp;&nbsp;&nbsp;editorial: {{ libro.editorial }} &nbsp;&nbsp;&nbsp;&nbsp;paginas: {{ libro.paginas }}</li>
                     {% endfor %}
                 </ul>
                 {% else %}
